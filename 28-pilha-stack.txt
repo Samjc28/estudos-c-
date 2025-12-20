@@ -1,0 +1,26 @@
+A palavra Pilha em português é a tradução exata de Stack em inglês. Em C++, o termo se refere a duas coisas:
+A Pilha de Chamadas (Call Stack): Uma área essencial da memória.
+A Estrutura de Dados std::stack: Uma ferramenta da biblioteca padrão (STL).
+
+1. A Pilha de Chamadas (Call Stack): Memória
+A Pilha de Chamadas é uma região da memória controlada pelo sistema operacional. Sua função é gerenciar a execução de funções no seu programa.
+Ela segue o princípio LIFO (Last-In, First-Out), ou seja, o último item que entra é o primeiro que sai.
+
+Como funciona:
+Ao chamar uma função: O sistema empilha um bloco de ativação (stack frame) na Pilha. Este bloco contém:
+O endereço de retorno (para onde o programa deve voltar quando a função terminar).
+As variáveis locais da função (por exemplo, o int num e int cont da sua função recursiva).
+Ao retornar de uma função: O bloco de ativação é desempilhado (popped), e toda a memória alocada para aquelas variáveis locais é liberada.
+Conexão com Recursão: A recursão funciona empilhando uma nova chamada na Pilha a cada passo. Quando a condição de parada (caso base) é atingida, as chamadas começam a ser desempilhadas, uma de cada vez, na ordem inversa.
+Se uma função recursiva não tiver um caso base, ela continuará empilhando chamadas infinitamente, consumindo toda a memória da Pilha e causando o famoso erro Stack Overflow (estouro de pilha).
+
+2. std::stack: Estrutura de Dados da STL
+O std::stack é uma classe da Biblioteca Padrão (STL) do C++ que implementa a estrutura de dados abstrata da pilha, forçando a regra LIFO.
+Você usa o std::stack quando precisa que seu programa imponha uma ordem estrita de último-a-entrar, primeiro-a-sair em uma coleção de dados.
+Operações Fundamentais:
+O std::stack só permite acesso ao elemento do topo.
+Operação	Nome em C++	Descrição
+Push	push(item)	Adiciona um elemento ao topo da pilha.
+Pop	pop()	Remove o elemento que está no topo (não retorna o valor).
+Top	top()	Retorna (lê) o elemento que está no topo, sem removê-lo.
+Vazia	empty()	Retorna true se a pilha estiver vazia.
