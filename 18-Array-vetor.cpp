@@ -1,16 +1,10 @@
 /*Um array é uma coleção de elementos do mesmo tipo de dado, armazenados em blocos de memória contíguos (sequenciais).
-
 Essa característica de armazenamento contíguo é o que torna os arrays extremamente eficientes para acesso a dados. Se você sabe a posição (ou índice) de um elemento, o computador pode acessá-lo instantaneamente, sem precisar "procurar" por ele.
-
 Um array funciona como uma série de caixas enfileiradas, onde cada caixa armazena um item do mesmo tipo. Para acessar um item, você precisa saber o número da caixa.
-
 Declaração: Para criar um array, você precisa definir o tipo de dado dos elementos e o tamanho do array.
-
 para criar um vetor preciso indicar o tipo de dado que ele vai armazenar(ex: int, float, string) adicionar um nome e o tamanho desse vetor. 
-
 Os espaços dos vetores são indices, para possamos acessar esses espaços usamos a posição desses indice, começando em [0]
 */
-
 /*Agora para que eu possa usar um array muito grande uso o loop for*/
 
 #include <iostream>
@@ -43,8 +37,6 @@ int main(){
     // para exibir os valores que estão dentro do vetor uso um cout
 
     //cout << "valor: " << vetor[0] << endl; // será exibido o valor da primeira posição.
-
-
     
     // usuando o loop for para trabalhar com o array
    /* for ( i = 0; i < 5; i++)

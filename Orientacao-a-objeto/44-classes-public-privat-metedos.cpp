@@ -29,7 +29,6 @@ class carro {
         int velocidade_atual;
         string combustivel;
         string velMax;
-
         // aqui vou criar uma função para que quando chamar o tipo do carro,ele vai dizer a velocidade que esse carro atingir. 
         // esse aqui é o prototipo da função.
         void ini(int fb); //ini é um método de inicialização criado manualmente para configurar os atributos do objeto logo após ele ser criado.
