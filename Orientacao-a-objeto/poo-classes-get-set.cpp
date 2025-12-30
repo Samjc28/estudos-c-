@@ -10,6 +10,9 @@ int main(){
 
         //Aqui no main para obter o velmax eu chamo o getvelmax
         cout << "velocidade maxima: " << transporte.getvelmax() << endl;
+        cout << "Estado: " << transporte.getestado() << endl;
+
+        
 
     return 0;
 }

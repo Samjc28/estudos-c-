@@ -29,12 +29,11 @@ class veiculo{
         int tipo; 
         // vou criar um construto de mesmo nome da classe
         veiculo(int tp);
-
         // aqui vou criar um metedo para altera algum valor dos pribados.
         int getvelmax(); // declarado o prototipo
-
-        // usando o set para definir a velmax
-        void setvelmax(int vmx);
+       // metedos para estado
+       bool getestado();
+       void ligar(int L);
 
     private: 
     // As propriedade privadas eu só vou ter acesso, elas só podem ser manipuladas pela classe
@@ -43,8 +42,9 @@ class veiculo{
          //std::string montadora;
          std::string nome;
          bool estado;
+          // usando o set para definir a velmax
+        void setvelmax(int vmx);
 };
-
 // vou fazer o metedo get para obter o velmax e pode altera-la
 int veiculo::getvelmax(){
     return velmax;
@@ -53,6 +53,22 @@ int veiculo::getvelmax(){
 void veiculo::setvelmax(int vmx){
     velmax = vmx;
 };
+
+//  estado
+bool veiculo::getestado(){
+    return estado;
+};
+
+ void ligar(int L){
+    std::cout << "Deseja ligar o veiculo? [ 1 = sim: 0 == nao] " << std::endl;
+    std::cin >> L;
+    if(L == 1){
+        std::cout << "Veiculo Ligado!\n";
+    } else
+        std::cout << "Veiculo Desligado\n";
+ };
+
+
 
 //Agora vamos declarar o metedo construtor
 //1° veiculo é a classe e o 2° veiculo e o construto
