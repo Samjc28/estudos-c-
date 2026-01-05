@@ -32,3 +32,9 @@ void Cachorro::latir(){
     std::cout << nome << " diz: AU AU! " << std::endl; 
 }
     
+// implementação do Gato
+Gato::Gato(std::string n) : Animal(n){}
+
+void Gato::miar(){
+    std::cout << nome << " diz: MIAU MIAU! " << std::endl;
+}

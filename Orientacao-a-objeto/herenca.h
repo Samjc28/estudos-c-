@@ -19,7 +19,11 @@ class Cachorro : public Animal{ // aqui estou criando uma nova classe nome-cacho
     void latir();
 };
 
-
 // criando uma nova classe gato que herda de
+class Gato : public Animal{
+    public:
+        Gato(std::string n); // construtor
+        void miar(); // metedo espeficico do gato
+};
 
 #endif
