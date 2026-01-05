@@ -38,7 +38,7 @@ class Inimigo{
 int main(){
 
     // usamos o vector para criar varios inimigos
-    // e o unique_ptr para evitar memory leak
+   // e o unique_ptr para evitar memory leak
     std::vector<std::unique_ptr<Inimigo>> horda;
 
     cout << "--- Criando hroda de inimigos --- \n";
