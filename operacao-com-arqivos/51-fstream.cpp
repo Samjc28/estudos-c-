@@ -2,6 +2,8 @@
 // Nela não preciso criar um objeto para entrda e outro para a saida, com um objeto posso fazer as duas coisas.
 
 /*Nesse exemplo de uso vou cirar um programa vai receber do teclado e salva, e pergurta de deseja adc mais.*/
+
+//O ws é um manipulador de fluxo (stream manipulator) que significa "white space" (espaço em branco).
 #include<iostream>
 #include<fstream>
 #include<vector>
