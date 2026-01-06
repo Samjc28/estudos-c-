@@ -47,6 +47,6 @@ int main(){
     }
 
     dir.close();
-    system("pause");
+    system("cls");
     return 0;
 }
