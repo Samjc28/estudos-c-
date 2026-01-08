@@ -22,7 +22,6 @@ extern (Externa)
 Esta é fundamental para projetos grandes com vários arquivos .cpp. Ela diz ao compilador: "Esta variável existe, mas ela está definida em outro arquivo. Procure por ela lá".
 */
 
-
 #include<iostream> 
 #include<vector>
 
