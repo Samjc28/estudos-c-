@@ -31,9 +31,9 @@ int main (){
     map<int, string> pessoa;
 
     // atribuindo elemento pelo vetor, a chave fica dentro do []
-    pessoa[0] = "Joelson"; // o joelson é a chave e ele vai receber um valor do tipo string
-    pessoa[1] = "Samuel"; // o joelson é a chave e ele vai receber um valor do tipo string
-    pessoa[2] = "Correa"; // o joelson é a chave e ele vai receber um valor do tipo string
+     pessoa[0] = "Joelson"; // o joelson é a chave e ele vai receber um valor do tipo string
+     pessoa[1] = "Samuel"; // o joelson é a chave e ele vai receber um valor do tipo string
+     pessoa[2] = "Correa"; // o joelson é a chave e ele vai receber um valor do tipo string
 
     // usando o for para imprimir // for normal
   //  for (int i = 0; i < 3; i++)
@@ -42,10 +42,20 @@ int main (){
 
     // for moderno 
 
-    for (auto it = pessoa.begin(); it != pessoa.end(); it++){
-       cout << "Dados: " << it->first << endl;
-    }
+   // for (auto it = pessoa.begin(); it != pessoa.end(); it++){
+    //   cout << "Dados: " << it->first << endl;
+    //}
     // Nesse formato para imprimir o valor das chaves usar o first e para o valor usar o second
+
+    // vamos fazer o uso do insert, pelo precisa de um par. fazemos o uso do pair
+    // adicionar mais indice, poderia copia e colar essa, masi se remover as // dos dados em cima ele vai ler e mostra na tela
+    
+    pessoa.insert(pair<int, string>(/*AQUi está vazio pq os dados estão em cima*/));
+
+    for (auto it = pessoa.begin(); it != pessoa.end(); it++){
+      cout << "Dados: " << it->second << endl;
+    }
+
 
     return 0;
 }
