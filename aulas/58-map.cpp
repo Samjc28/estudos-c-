@@ -30,6 +30,8 @@ int main (){
     // o int é para a chave e a string é para o valor.
     map<int, string> pessoa;
 
+    map<int, string>::iterator itmap; // para usar o find
+
     // atribuindo elemento pelo vetor, a chave fica dentro do []
      pessoa[0] = "Joelson"; // o joelson é a chave e ele vai receber um valor do tipo string
      pessoa[1] = "Samuel"; // o joelson é a chave e ele vai receber um valor do tipo string
@@ -50,7 +52,25 @@ int main (){
     // vamos fazer o uso do insert, pelo precisa de um par. fazemos o uso do pair
     // adicionar mais indice, poderia copia e colar essa, masi se remover as // dos dados em cima ele vai ler e mostra na tela
     
-    pessoa.insert(pair<int, string>(/*AQUi está vazio pq os dados estão em cima*/));
+   // pessoa.insert(pair<int, string>(/*AQUi está vazio pq os dados estão em cima*/));
+
+    // uso o erase para retira um elemento, assim o elemento 2 será excluido
+    // Toda vez que quisermos delete um elemento do map chama o erase e passe a chave desse elemento
+  //  pessoa.erase(2);
+
+    // Agora se for para apaga todos os elementos usamos o clear
+    //pessoa.clear();
+
+    // usnado o find para procura um elemento dentro do map
+    // feito o iterator usamos o find e colocamos a chave do elementos que queremos achar
+  itmap = pessoa.find(3);
+  if (itmap == pessoa.end()){
+    cout << " elemento nao encontrado. ";
+  } else{
+      cout << " elemento localizado. "<< endl;
+      cout << " elemento " << itmap->first << endl;
+  }
+
 
     // estou usando a -> devido a forma do for se fosse um for em intervalo usar o (.)
     for (auto it = pessoa.begin(); it != pessoa.end(); it++){
