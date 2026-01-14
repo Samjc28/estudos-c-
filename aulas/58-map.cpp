@@ -52,8 +52,9 @@ int main (){
     
     pessoa.insert(pair<int, string>(/*AQUi está vazio pq os dados estão em cima*/));
 
+    // estou usando a -> devido a forma do for se fosse um for em intervalo usar o (.)
     for (auto it = pessoa.begin(); it != pessoa.end(); it++){
-      cout << "Dados: " << it->second << endl;
+      cout << "Dados: " << it->first << " - " << it->second << endl;
     }
 
 
