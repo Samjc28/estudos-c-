@@ -21,65 +21,62 @@ Uso: Para evitar "ciclos de referência" (quando dois objetos apontam um para o 
 #include <memory>
 #include <string>
 
-using namespace std; // Usando conforme sua preferência
+using namespace std;
 
-// Precisamos desta linha porque o Cao usa o Dono, mas o Dono só é definido depois
+// 1. Apenas avisamos que a struct existe
 struct Dono; 
 
 struct Cao {
     string nome;
-    weak_ptr<Dono> dono; // Solução: weak_ptr para quebrar o ciclo de referência
+    weak_ptr<Dono> dono;
 
     Cao(string n) : nome(n) { 
-        cout << "[Cons] Cao " << nome << " nasceu no canil." << endl; 
+        cout << "[Cons] Cao " << nome << " nasceu." << endl; 
     }
     
     ~Cao() { 
-        cout << "[Dest] Cao " << nome << " foi para o ceu dos cachorros." << endl; 
+        cout << "[Dest] Cao " << nome << " morreu." << endl; 
     }
 
-    void latir() {
-        // Para usar um weak_ptr, precisamos transformá-lo em shared_ptr temporariamente
-        if (auto d = dono.lock()) {
-            cout << nome << " diz: Au Au! Meu dono e o " << d->nome << endl;
-        } else {
-            cout << nome << " esta latindo, mas nao tem dono por perto." << endl;
-        }
-    }
+    // 2. Apenas declaramos a função aqui (sem o corpo {})
+    void latir(); 
 };
 
 struct Dono {
     string nome;
-    shared_ptr<Cao> pet; // O dono tem a posse (shared) do cão
+    shared_ptr<Cao> pet;
 
     Dono(string n) : nome(n) { 
-        cout << "[Cons] Dono " << nome << " entrou na loja de animais." << endl; 
+        cout << "[Cons] Dono " << nome << " criado." << endl; 
     }
     
     ~Dono() { 
-        cout << "[Dest] Dono " << nome << " foi embora para casa." << endl; 
+        cout << "[Dest] Dono " << nome << " destruido." << endl; 
     }
 };
 
-    int main() {
-        cout << "--- Inicio do Bloco de Escopo ---" << endl;
-        {
-            // Criamos os dois usando ponteiros inteligentes
-            auto pessoa = make_shared<Dono>("Carlos");
-            auto animal = make_shared<Cao>("Rex");
+// 3. Agora que o compilador já conhece o Dono por completo,
+// definimos o que a função latir() faz:
+void Cao::latir() {
+    if (auto d = dono.lock()) {
+        // Agora o compilador sabe que d->nome existe!
+        cout << nome << " diz: Au Au! Meu dono e o " << d->nome << endl;
+    } else {
+        cout << nome << " esta latindo, mas nao tem dono por perto." << endl;
+    }
+}
 
-            // Estabelecemos a relação
-            pessoa->pet = animal;   // Dono aponta para o Cao (Shared)
-            animal->dono = pessoa;  // Cao aponta para o Dono (Weak)
+int main() {
+    {
+        auto pessoa = make_shared<Dono>("Carlos");
+        auto animal = make_shared<Cao>("Rex");
 
-            animal->latir();
-            
-            cout << "O programa ainda esta dentro do bloco {}." << endl;
-        } 
-        // Assim que chegamos aqui, os objetos SAEM DE ESCOPO.
-        // Como usamos weak_ptr, o contador de referencias chega a ZERO e a memoria e liberada.
+        pessoa->pet = animal;
+        animal->dono = pessoa;
 
-        cout << "--- Fim do Bloco de Escopo ---" << endl;
+        animal->latir();
+    } 
 
+    cout << "Fim do programa." << endl;
     return 0;
 }
